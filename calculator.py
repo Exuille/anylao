@@ -6,7 +6,7 @@ import sympy as sp
 
 # Create the main window
 root = tk.Tk()
-root.geometry("450x800")
+root.geometry("480x800")
 root.title("Calculator")
 
 calculator_screen = tk.Frame(root)
@@ -64,12 +64,18 @@ def process_symbol(symbol):
         "csc",
         "sec",
         "cot",
-        "asin",
-        "acos",
-        "atan",
         "sinh",
         "cosh",
         "tanh",
+        "asin",
+        "acos",
+        "atan",
+        "acsc",
+        "asec",
+        "acot",
+        "asinh",
+        "acosh",
+        "atanh",
         "ln",
         "log",
     ]
@@ -98,6 +104,32 @@ def process_symbol(symbol):
 
     elif symbol == "π":
         expression += "pi"
+
+    elif symbol == "INV":
+        buttons = [
+            ["x", "y", "z", "REG", "OFF"],
+            ["asinh", "acosh", "atanh", "e", "π"],
+            ["acsc", "asec", "acot", "ln", "log"],
+            ["asin", "acos", "atan", "(", ")"],
+            ["7", "8", "9", "DEL", "AC"],
+            ["4", "5", "6", "*", "/"],
+            ["1", "2", "3", "+", "-"],
+            ["0", ".", "d/dx", "^", "="],
+        ]
+        create_buttons(buttons)
+
+    elif symbol == "REG":
+        buttons = [
+            ["x", "y", "z", "INV", "OFF"],
+            ["sinh", "cosh", "tanh", "e", "π"],
+            ["csc", "sec", "cot", "ln", "log"],
+            ["sin", "cos", "tan", "(", ")"],
+            ["7", "8", "9", "DEL", "AC"],
+            ["4", "5", "6", "*", "/"],
+            ["1", "2", "3", "+", "-"],
+            ["0", ".", "d/dx", "^", "="],
+        ]
+        create_buttons(buttons)
 
     elif symbol == "d/dx":
         diff = True
@@ -133,25 +165,25 @@ def create_numkeys():
         create_button(f"{i}", row, col)
 
 
-def create_buttons():
-    buttons = [
-        ["x", "y", "z", "INV", "OFF"],
-        ["sinh", "cosh", "tanh", "e", "π"],
-        ["csc", "sec", "cot", "ln", "log"],
-        ["sin", "cos", "tan", "(", ")"],
-        ["7", "8", "9", "DEL", "AC"],
-        ["4", "5", "6", "*", "/"],
-        ["1", "2", "3", "+", "-"],
-        ["0", ".", "d/dx", "^", "="],
-    ]
+buttons = [
+    ["x", "y", "z", "INV", "OFF"],
+    ["sinh", "cosh", "tanh", "e", "π"],
+    ["csc", "sec", "cot", "ln", "log"],
+    ["sin", "cos", "tan", "(", ")"],
+    ["7", "8", "9", "DEL", "AC"],
+    ["4", "5", "6", "*", "/"],
+    ["1", "2", "3", "+", "-"],
+    ["0", ".", "d/dx", "^", "="],
+]
 
+def create_buttons(buttons):
     for i, row in enumerate(buttons):
         for j, label in enumerate(row):
             create_button(label, i + ROW_OFFSET, j)
 
 
 
-create_buttons()
+create_buttons(buttons)
 display_equation()
 
 calculator_screen.pack()
