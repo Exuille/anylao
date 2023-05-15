@@ -7,115 +7,115 @@ questions = [
         "question": "If y=sin(x^3), find dy/dx.",
         "options": ["3x^2 cosx^3", "-3x^2 cosx^3", "3x^2 cosx^2", "3x^3 cosx^3"],
         "answer": "3x^2 cosx^3",
-        "solution" : "sol_1.png"
+        "solution" : "solutions/sol_1.png"
     },
     {
         "question": "Compute the derivative of the function y = arcsin(2x + 1), or  y = sin-1(2x + 1).",
         "options": [" 2/√[-x(x + 2)]", "-1/√[-x(x + 1)]", "1/√[-x(x + 1)]", "1/√[-x(x + 2)]"],
         "answer": "1/√[-x(x + 1)]",
-        "solution" : "sol_2.png"
+        "solution" : "solutions/sol_2.png"
     },
     {
         "question": "Find g' (t), when g (t) = - 325. ",
         "options": ["-325", "0", "325", "1"],
         "answer": "0",
-        "solution" : "sol_3.png"
+        "solution" : "solutions/sol_3.png"
     },
     {
         "question": "Differentiate log e (x^2 + 3x + 1).",
         "options": ["1/((x^2 + 3x + 1)", "2x+3", "(2x+3)/(x^2+3x+1)", "1/((x^2 + 3x + 1)"],
         "answer": "(2x+3)/(x^2+3x+1)",
-        "solution" : "sol_4.png"
+        "solution" : "solutions/sol_4.png"
     },
     {
         "question" : "Solve the equation: 2 cosh 2x +10sinh 2x = 5",
         "options" : ["4/3ln(1/2)", "1/2ln(4/3)", "3/4ln(1/2)", "1/2ln(3/4)"],
         "answer" : "1/2ln(4/3)",
-        "solution" : "sol_5.png"
+        "solution" : "solutions/sol_5.png"
     },
     {
         "question" : "e^xcos(x)",
         "options" : ["e^xcos(x)+e^xsin(x)", "e^xcos(x)-e^xsin(x)", "e^xsin(x)-e^xcos(x)", "e^xsin(x)cos(x)"],
         "answer" : "e^xcos(x)-e^xsin(x)",
-        "solution" : "sol_6.png"
+        "solution" : "solutions/sol_6.png"
     },
     {
         "question" : "sech(5x^3+x^2-2)",
         "options" : ["-sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)", "-sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(5x^3+x^2-2)", "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)", "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(5x^3+x^2-2)"],
         "answer" : "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)",
-        "solution" : "sol_7.png"
+        "solution" : "solutions/sol_7.png"
     },
     {
         "question" : "log10(x^13)",
         "options" : ["13ln(10)x", "13/ln(10)x", "10/ln(13)x", "10ln(13)x"],
         "answer" : "13/ln(10)x",
-        "solution" : "sol_8.png"
+        "solution" : "solutions/sol_8.png"
     },
     {
         "question" : "e^x^3 + x^2 -6",
         "options" : ["e^x^3-x^2+6(3x^2+3x)","e^x^3+x^2-6(3x^2+2x)","e^x^3+x^2-6(2x^3+2x)", "e^x^3+x^2-6(2x^3-2x)"],
         "answer" : "e^x^3+x^2-6(3x^2+2x)",
-        "solution" : "sol_9.png"
+        "solution" : "solutions/sol_9.png"
     },
     {
         "question" : "sin^2(x)",
         "options" : ["cos(2x)", "sin(2x)", "sin(x)cos(2x)", "sin(2x)cos(2x)"],
         "answer" : "sin(2x)",
-        "solution" : "sol_10.png"
+        "solution" : "solutions/sol_10.png"
     },
     {
         "question" : "Use Logarithmic Differentiation to Find the Derivative y=(2x-6)^2/(3x-2)^2",
         "options" : ["y’ = - 56(x-3)/ (3x-2)^3", "y’ = 56(x-3)/ (3x-2)^3", "y’ = 56(x-3)/ (3x-2)^4", "y’ = -56(x-3)/ (3x-2)^4"],
         "answer" : "y’ = 56(x-3)/ (3x-2)^3",
-        "solution" : "sol_11.png"
+        "solution" : "solutions/sol_11.png"
     },
     {
         "question" : "Find the derivative of y= -4x^3e^2x^3",
         "options" : ["-4x^2e^2x^2(4x^2+5)", "4x^2e^2x^2(4x^2+3)", "5x^2e^2x^2(4x^2+3)", "-4x^2e^2x^2(4x^2+3)"],
         "answer" : "-4x^2e^2x^2(4x^2+3)",
-        "solution" : "sol_12.png"
+        "solution" : "solutions/sol_12.png"
     },
     {
         "question" : "Find the derivative of y= -6e^3x",
         "options" : ["18e^3x", "18e", "-18e^4x", "-18e^3x"],
         "answer" : "-18e^3x",
-        "solution" : "sol_13.png"
+        "solution" : "solutions/sol_13.png"
     },
     {
         "question" : "Find the derivative of y = 5^-2x^3",
         "options" : ["-6x^2(ln5)5^-2x", "6x^2(ln5)5^-2x", "-6x^2(ln5)5^", "-6x(ln5)5^-2x"],
         "answer" : "-6x^2(ln5)5^-2x",
-        "solution" : "sol_14.png"
+        "solution" : "solutions/sol_14.png"
     },
     {
         "question" : "y= 3^1/x",
         "options" : ["(3ln 3)/x^2", "(3^1/xln 3)/x^2", "(3ln 2)/x^2", "(-3^1/xln 3)/x^2"],
         "answer" : "(3^1/xln 3)/x^2",
-        "solution" : "sol_15.png"
+        "solution" : "solutions/sol_15.png"
     },
     {
         "question" : "Differentiate y=2 sinh x cosh x + 3 csch x",
         "options" : ["y'=3sinh^2 - 2cosh^2x + 3csch x coth x", "y'=2sinh^2 - 2cosh^2x + 3csch x coth x", "y'=2sinh^2 + 2cosh^2x - 3csch x coth x", "y'=3sinh^2 + 3cosh^2x - 2csch x coth x"],
         "answer" : "y'=2sinh^2 + 2cosh^2x - 3csch x coth x",
-        "solution" : "sol_16.png"
+        "solution" : "solutions/sol_16.png"
     },
     {
         "question" : " d/dx[√cos^-1(x)]",
         "options" : ["1/cos^-1(x)√1-x^2", "-1/2√cos^-1(x)√1-x^2", "1/-sin(cos^-1(x))", "1/2√cos^-1(x)√1-x^2"],
         "answer" : "-1/2√cos^-1(x)√1-x^2",
-        "solution" : "sol_17.png"
+        "solution" : "solutions/sol_17.png"
     },
     {
         "question" : "d/dx [ln(tan^-1(x))]",
         "options" : ["1/tan^-1(x)(1+x^2)", "1/tan^-1(x)", "1/2(1+x^2)", "1/x+x(ln(x))^2"],
         "answer" : "1/tan^-1(x)(1+x^2)",
-        "solution" : "sol_18.png"
+        "solution" : "solutions/sol_18.png"
     },
     {
-        "question" : "d/dx[xsin^1(ln(x))]",
+        "question" : "d/dx[xsin^-1(ln(x))]",
         "options" : ["sin^-1(ln(x))", "1/√1-(ln(x))^2", "sin^-1(ln(x)) - 1/√1-(ln(x))^2", "sin^-1(ln(x)) + 1/√1-(ln(x))^2"],
         "answer" : "sin^-1(ln(x)) + 1/√1-(ln(x))^2",
-        "solution" : "sol_19.png"
+        "solution" : "solutions/sol_19.png"
     }
 ]
 
@@ -132,6 +132,7 @@ def ask_question():
     option_d.configure(text="D) " + question["options"][3], state=tk.NORMAL, wraplength=300)
     show_score()
     disable_next_button()
+    show_solution_button.configure(state=tk.DISABLED)
     exit_button.pack_forget()
 
 def enable_next_button():
@@ -169,8 +170,8 @@ def check_answer():
     question = questions[question_num]
     if question["answer"] == question["options"][ord(selected_choice) - ord("A")]:
         score += 1
+        show_score()
         result_label.configure(text="Correct!", fg="green")
-
     else:
         result_label.configure(text="Incorrect!", fg="red")
     
@@ -209,7 +210,19 @@ def exit_quiz():
         root.destroy()
 
 def show_solution():
-    messagebox.showinfo("Solution", "Solution not available")
+    question = questions[question_num]
+    image_path = question["solution"]
+    
+    solution_window = tk.Toplevel(root)
+    solution_window.title("Solution")
+    
+    image = Image.open(image_path)
+    photo = ImageTk.PhotoImage(image)
+    
+    solution_label = tk.Label(solution_window, image=photo)
+    solution_label.pack()
+    
+    solution_window.mainloop()
 
 root = tk.Tk()
 root.geometry("450x800")
