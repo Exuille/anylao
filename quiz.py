@@ -1,127 +1,250 @@
 import tkinter as tk
+from tkinter import messagebox
+from PIL import Image, ImageTk
 
-class QuizApp:
-    def __init__(self, master):
-        self.master = master
-        self.question_num = 0
-        self.score = 0
-        self.questions = [
-            {
-                "question": "If y = sin x^3, find dy/dx.",
-                "options": ["3x^2 cosx^3", "-3x^2 cosx^3", "3x^2 cosx^2", "3x^3 cosx^3"],
-                "answer": "3x^2 cosx^3"
-            },
-            {
-                "question": "Compute the derivative of the function y = arcsin(2x + 1), or  y = sin-1(2x + 1).",
-                "options": [" 2/√[-x(x + 2)]", "-1/√[-x(x + 1)]", "1/√[-x(x + 1)]", "1/√[-x(x + 2)]"],
-                "answer": "1/√[-x(x + 1)]"
-            },
-            {
-                "question": "Find g' (t), when g (t) = - 325. ",
-                "options": ["-325", "0", "325", "1"],
-                "answer": "0"
-            },
-            {
-                "question" : "Differentiate log e (x^2 + 3x + 1).",
-                "options" : ["1/((x^2 + 3x + 1)", "2x+3", "(x^2+3x+1)/(2x+3)", "1/((x^2 + 3x + 1)"],
-                "answer" : "(x^2+3x+1)/(2x+3)"
-            },
-            {
-                "question" : "Solve the equation: 2 cosh 2x +10sinh 2x = 5",
-                "options" : ["4/3ln(1/2)", "1/2ln(4/3)", "3/4ln(1/2)", "1/2ln(3/4)"],
-                "answer" : "1/2ln(4/3)"
-            },
-            {
-                "question" : "e^xcos(x)",
-                "options" : ["e^xcos(x)+e^xsin(x)", "e^xcos(x)-e^xsin(x)", "e^xsin(x)-e^xcos(x)", "e^xsin(x)cos(x)"],
-                "answer" : "e^xcos(x)-e^xsin(x)"
-            },
-            {
-                "question" : "sech(5x^3+x^2-2)",
-                "options" : ["-sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)", "-sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(5x^3+x^2-2)", "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)", "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(5x^3+x^2-2)"],
-                "answer" : "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)"
-            },
-            {
-                "question" : "log10(x^13)",
-                "options" : ["13ln(10)x", "13/ln(10)x", "10/ln(13)x", "10ln(13)x"],
-                "answer" : "13/ln(10)x"
-            },
-            {
-                "question" : "e^x^3 + x^2 -6",
-                "options" : ["e^x^3-x^2+6(3x^2+3x)","e^x^3+x^2-6(3x^2+2x)"],
-                "answer" : "e^x^3+x^2-6(3x^2+2x)"
-            },
-            {
-                "question" : "sin^2(x)",
-                "options" : ["cos(2x)", "sin(2x)", "sin(x)cos(2x)", "sin(2x)cos(2x)"],
-                "answer" : "sin(2x)"
-            },
-        ]
+questions = [
+    {
+        "question": "If y=sin(x^3), find dy/dx.",
+        "options": ["3x^2 cosx^3", "-3x^2 cosx^3", "3x^2 cosx^2", "3x^3 cosx^3"],
+        "answer": "3x^2 cosx^3",
+        "solution" : "sol_1.png"
+    },
+    {
+        "question": "Compute the derivative of the function y = arcsin(2x + 1), or  y = sin-1(2x + 1).",
+        "options": [" 2/√[-x(x + 2)]", "-1/√[-x(x + 1)]", "1/√[-x(x + 1)]", "1/√[-x(x + 2)]"],
+        "answer": "1/√[-x(x + 1)]",
+        "solution" : "sol_2.png"
+    },
+    {
+        "question": "Find g' (t), when g (t) = - 325. ",
+        "options": ["-325", "0", "325", "1"],
+        "answer": "0",
+        "solution" : "sol_3.png"
+    },
+    {
+        "question": "Differentiate log e (x^2 + 3x + 1).",
+        "options": ["1/((x^2 + 3x + 1)", "2x+3", "(2x+3)/(x^2+3x+1)", "1/((x^2 + 3x + 1)"],
+        "answer": "(2x+3)/(x^2+3x+1)",
+        "solution" : "sol_4.png"
+    },
+    {
+        "question" : "Solve the equation: 2 cosh 2x +10sinh 2x = 5",
+        "options" : ["4/3ln(1/2)", "1/2ln(4/3)", "3/4ln(1/2)", "1/2ln(3/4)"],
+        "answer" : "1/2ln(4/3)",
+        "solution" : "sol_5.png"
+    },
+    {
+        "question" : "e^xcos(x)",
+        "options" : ["e^xcos(x)+e^xsin(x)", "e^xcos(x)-e^xsin(x)", "e^xsin(x)-e^xcos(x)", "e^xsin(x)cos(x)"],
+        "answer" : "e^xcos(x)-e^xsin(x)",
+        "solution" : "sol_6.png"
+    },
+    {
+        "question" : "sech(5x^3+x^2-2)",
+        "options" : ["-sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)", "-sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(5x^3+x^2-2)", "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)", "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(5x^3+x^2-2)"],
+        "answer" : "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)",
+        "solution" : "sol_7.png"
+    },
+    {
+        "question" : "log10(x^13)",
+        "options" : ["13ln(10)x", "13/ln(10)x", "10/ln(13)x", "10ln(13)x"],
+        "answer" : "13/ln(10)x",
+        "solution" : "sol_8.png"
+    },
+    {
+        "question" : "e^x^3 + x^2 -6",
+        "options" : ["e^x^3-x^2+6(3x^2+3x)","e^x^3+x^2-6(3x^2+2x)","e^x^3+x^2-6(2x^3+2x)", "e^x^3+x^2-6(2x^3-2x)"],
+        "answer" : "e^x^3+x^2-6(3x^2+2x)",
+        "solution" : "sol_9.png"
+    },
+    {
+        "question" : "sin^2(x)",
+        "options" : ["cos(2x)", "sin(2x)", "sin(x)cos(2x)", "sin(2x)cos(2x)"],
+        "answer" : "sin(2x)",
+        "solution" : "sol_10.png"
+    },
+    {
+        "question" : "Use Logarithmic Differentiation to Find the Derivative y=(2x-6)^2/(3x-2)^2",
+        "options" : ["y’ = - 56(x-3)/ (3x-2)^3", "y’ = 56(x-3)/ (3x-2)^3", "y’ = 56(x-3)/ (3x-2)^4", "y’ = -56(x-3)/ (3x-2)^4"],
+        "answer" : "y’ = 56(x-3)/ (3x-2)^3",
+        "solution" : "sol_11.png"
+    },
+    {
+        "question" : "Find the derivative of y= -4x^3e^2x^3",
+        "options" : ["-4x^2e^2x^2(4x^2+5)", "4x^2e^2x^2(4x^2+3)", "5x^2e^2x^2(4x^2+3)", "-4x^2e^2x^2(4x^2+3)"],
+        "answer" : "-4x^2e^2x^2(4x^2+3)",
+        "solution" : "sol_12.png"
+    },
+    {
+        "question" : "Find the derivative of y= -6e^3x",
+        "options" : ["18e^3x", "18e", "-18e^4x", "-18e^3x"],
+        "answer" : "-18e^3x",
+        "solution" : "sol_13.png"
+    },
+    {
+        "question" : "Find the derivative of y = 5^-2x^3",
+        "options" : ["-6x^2(ln5)5^-2x", "6x^2(ln5)5^-2x", "-6x^2(ln5)5^", "-6x(ln5)5^-2x"],
+        "answer" : "-6x^2(ln5)5^-2x",
+        "solution" : "sol_14.png"
+    },
+    {
+        "question" : "y= 3^1/x",
+        "options" : ["(3ln 3)/x^2", "(3^1/xln 3)/x^2", "(3ln 2)/x^2", "(-3^1/xln 3)/x^2"],
+        "answer" : "(3^1/xln 3)/x^2",
+        "solution" : "sol_15.png"
+    },
+    {
+        "question" : "Differentiate y=2 sinh x cosh x + 3 csch x",
+        "options" : ["y'=3sinh^2 - 2cosh^2x + 3csch x coth x", "y'=2sinh^2 - 2cosh^2x + 3csch x coth x", "y'=2sinh^2 + 2cosh^2x - 3csch x coth x", "y'=3sinh^2 + 3cosh^2x - 2csch x coth x"],
+        "answer" : "y'=2sinh^2 + 2cosh^2x - 3csch x coth x",
+        "solution" : "sol_16.png"
+    },
+    {
+        "question" : " d/dx[√cos^-1(x)]",
+        "options" : ["1/cos^-1(x)√1-x^2", "-1/2√cos^-1(x)√1-x^2", "1/-sin(cos^-1(x))", "1/2√cos^-1(x)√1-x^2"],
+        "answer" : "-1/2√cos^-1(x)√1-x^2",
+        "solution" : "sol_17.png"
+    },
+    {
+        "question" : "d/dx [ln(tan^-1(x))]",
+        "options" : ["1/tan^-1(x)(1+x^2)", "1/tan^-1(x)", "1/2(1+x^2)", "1/x+x(ln(x))^2"],
+        "answer" : "1/tan^-1(x)(1+x^2)",
+        "solution" : "sol_18.png"
+    },
+    {
+        "question" : "d/dx[xsin^1(ln(x))]",
+        "options" : ["sin^-1(ln(x))", "1/√1-(ln(x))^2", "sin^-1(ln(x)) - 1/√1-(ln(x))^2", "sin^-1(ln(x)) + 1/√1-(ln(x))^2"],
+        "answer" : "sin^-1(ln(x)) + 1/√1-(ln(x))^2",
+        "solution" : "sol_19.png"
+    }
+]
 
-        # create widgets
-        self.question_label = tk.Label(master, text="")
-        self.question_label.pack()
-        self.option_a = tk.Button(master, text="", command=lambda:self.check_answer("A"))
-        self.option_a.pack()
-        self.option_b = tk.Button(master, text="", command=lambda:self.check_answer("B"))
-        self.option_b.pack()
-        self.option_c = tk.Button(master, text="", command=lambda:self.check_answer("C"))
-        self.option_c.pack()
-        self.option_d = tk.Button(master, text="", command=lambda:self.check_answer("D"))
-        self.option_d.pack()
-        self.score_label = tk.Label(master, text="")
-        self.score_label.pack()
-        self.next_button = tk.Button(master, text="Next", command=self.next_question)
-        self.next_button.pack()
-        
-        # initialize the quiz
-        self.ask_question()
+question_num = 0
+score = 0
 
-    def ask_question(self):
-        question = self.questions[self.question_num]
-        self.question_label.configure(text=question["question"])
-        self.option_a.configure(text="A) " + question["options"][0])
-        self.option_b.configure(text="B) " + question["options"][1])
-        self.option_c.configure(text="C) " + question["options"][2])
-        self.option_d.configure(text="D) " + question["options"][3])
-        
-    def check_answer(self, choice):
-        question = self.questions[self.question_num]
-        if question["answer"] == question["options"][ord(choice)-ord('A')]:
-            self.score += 1
-        self.show_score()
-        
-    def show_score(self):
-        self.score_label.configure(text="Score: " + str(self.score) + "/" + str(self.question_num+1))
+def ask_question():
+    global question_num
+    question = questions[question_num]
+    question_label.configure(text=question["question"], wraplength=435)
+    option_a.configure(text="A) " + question["options"][0], state=tk.NORMAL, wraplength=300)
+    option_b.configure(text="B) " + question["options"][1], state=tk.NORMAL, wraplength=300)
+    option_c.configure(text="C) " + question["options"][2], state=tk.NORMAL, wraplength=300)
+    option_d.configure(text="D) " + question["options"][3], state=tk.NORMAL, wraplength=300)
+    show_score()
+    disable_next_button()
+    exit_button.pack_forget()
 
-    def next_question(self):
-        self.question_num += 1
-        if self.question_num >= len(self.questions):
-            self.show_final_score()
-        else:
-            self.ask_question()
+def enable_next_button():
+    next_button.configure(state=tk.NORMAL)
+    if question_num == len(questions) - 1:
+        next_button.configure(text="Finish")
 
-    def show_final_score(self):
-        self.question_label.configure(text="Quiz complete!")
-        self.option_a.destroy()
-        self.option_b.destroy()
-        self.option_c.destroy()
-        self.option_d.destroy()
-        self.score_label.configure(text="Final score: " + str(self.score) + "/" + str(len(self.questions)))
-        self.next_button.configure(text="Restart", command=self.restart_quiz)
+def disable_next_button():
+    next_button.configure(state=tk.DISABLED)
 
-    def restart_quiz(self):
-        self.question_num = 0
-        self.score = 0
-        self.ask_question()
-        self.next_button.configure(text="Next")
+def disable_choices():
+    option_a.configure(state=tk.DISABLED)
+    option_b.configure(state=tk.DISABLED)
+    option_c.configure(state=tk.DISABLED)
+    option_d.configure(state=tk.DISABLED)
+    confirm_button.configure(state=tk.DISABLED)
 
-# create the main window
+def enable_choices():
+    option_a.configure(state=tk.NORMAL)
+    option_b.configure(state=tk.NORMAL)
+    option_c.configure(state=tk.NORMAL)
+    option_d.configure(state=tk.NORMAL)
+    confirm_button.configure(state=tk.NORMAL)
+
+def check_choice(choice):
+    global selected_choice
+    selected_choice = choice
+    confirm_button.configure(state=tk.NORMAL)
+
+def show_score():
+    score_top_label.configure(text="Score: " + str(score) + "/" + str(len(questions)))
+
+def check_answer():
+    global score
+    question = questions[question_num]
+    if question["answer"] == question["options"][ord(selected_choice) - ord("A")]:
+        score += 1
+        result_label.configure(text="Correct!", fg="green")
+
+    else:
+        result_label.configure(text="Incorrect!", fg="red")
+    
+    disable_choices()
+    enable_next_button()
+    show_solution_button.pack()
+    show_solution_button.configure(state=tk.NORMAL)
+
+def next_question():
+    global question_num
+    question_num += 1
+    if question_num < len(questions):
+        ask_question()
+    else:
+        show_final_score_screen()
+
+def show_final_score_screen():
+    score_top_label.pack_forget()
+    question_label.configure(text="Quiz Finished")
+    option_a.pack_forget()
+    option_b.pack_forget()
+    option_c.pack_forget()
+    option_d.pack_forget()
+    confirm_button.pack_forget()
+    next_button.pack_forget()
+    show_solution_button.pack_forget()
+    exit_button.pack
+    result_label.configure(text="Your Final Score: " + str(score) + "/" + str(len(questions)), font=("RobotoCondensed", 20))
+    exit_button.configure(state=tk.NORMAL)
+    congratulation_label = tk.Label(root, text="Congratulations!", font=("RobotoCondensed", 24))
+    congratulation_label.pack(pady=10)
+
+def exit_quiz():
+    answer = messagebox.askyesno("Exit Quiz", "Are you sure you want to exit the quiz?")
+    if answer:
+        root.destroy()
+
+def show_solution():
+    messagebox.showinfo("Solution", "Solution not available")
+
 root = tk.Tk()
-root.title("Quiz App")
+root.geometry("450x800")
+root.title("Math Quiz")
+root.resizable(False, False)
 
-# create the quiz app
-app = QuizApp(root)
+score_top_label = tk.Label(root, text="Score: 0", font=("RobotoCondensed", 14))
+score_top_label.pack(pady=20)
+result_label = tk.Label(root, text="", font=("RobotoCondensed", 14))
+result_label.pack(pady=10)
 
-# run the main event loop
+question_label = tk.Label(root, text="", font=("RobotoCondensed", 16), pady=40)
+question_label.pack()
+
+option_a = tk.Button(root, text="", font=("RobotoCondensed", 14), width=30, command=lambda: check_choice("A"))
+option_a.pack(pady=10)
+option_b = tk.Button(root, text="", font=("RobotoCondensed", 14), width=30, command=lambda: check_choice("B"))
+option_b.pack(pady=10)
+option_c = tk.Button(root, text="", font=("RobotoCondensed", 14), width=30, command=lambda: check_choice("C"))
+option_c.pack(pady=10)
+option_d = tk.Button(root, text="", font=("RobotoCondensed", 14), width=30, command=lambda: check_choice("D"))
+option_d.pack(pady=10)
+
+confirm_button = tk.Button(root, text="Confirm Answer", font=("RobotoCondensed", 14), width=15, state=tk.DISABLED,command=check_answer)
+confirm_button.pack(pady=10)
+
+next_button = tk.Button(root, text="Next", font=("RobotoCondensed", 14), width=15, command=next_question, state=tk.DISABLED)
+next_button.pack(pady=30)
+
+show_solution_button = tk.Button(root, text="Show Solution", font=("RobotoCondensed", 14), width=15,state=tk.DISABLED, command=show_solution)
+show_solution_button.pack(pady=10)
+
+exit_button = tk.Button(root, text="Exit Quiz", font=("RobotoCondensed", 14), width=15, command=exit_quiz,state=tk.DISABLED)
+exit_button.pack(pady=10)
+
+ask_question()
+
 root.mainloop()
