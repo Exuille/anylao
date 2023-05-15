@@ -6,7 +6,7 @@ root = tk.Tk()
 # Set the screen to Topics Screen
 
 # Set the layout and stuff for the Topics Screen
-root.title("diffCALC")
+root.title("DiffCALC")
 root.geometry('450x580')
 root.configure(bg='white')
 
