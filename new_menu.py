@@ -99,8 +99,6 @@ button = tk.Button(menu_frame,text='C A L C U L A T O R', width = 42, height = 2
 button.place(x=45, y = 172)
 button = tk.Button(menu_frame,text='P R A C T C E   Q U I Z', width = 42, height = 2,command= show_quiz)
 button.place(x=45, y = 227)
-button = tk.Button(menu_frame,text='A B O U T', width = 42, height = 2)
-button.place(x=45, y = 282)
 closeBtn = tk.Button(menu_frame, bg='#5E7CAE', activebackground='#5E7CAE',image=closeIcon,command=dele)
 closeBtn.place(x=10, y=18)
 
