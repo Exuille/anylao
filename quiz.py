@@ -198,7 +198,7 @@ def show_final_score_screen():
     confirm_button.pack_forget()
     next_button.pack_forget()
     show_solution_button.pack_forget()
-    exit_button.pack
+    exit_button.pack()
     result_label.configure(text="Your Final Score: " + str(score) + "/" + str(len(questions)), font=("RobotoCondensed", 20))
     exit_button.configure(state=tk.NORMAL)
     congratulation_label = tk.Label(root, text="Congratulations!", font=("RobotoCondensed", 24))
