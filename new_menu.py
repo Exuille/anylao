@@ -537,6 +537,7 @@ def check_answer():
 
 def next_question():
     global question_num
+    result_label.configure(text="")
     question_num += 1
     if question_num < len(questions):
         ask_question()
