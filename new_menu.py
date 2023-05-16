@@ -5,12 +5,18 @@ import math
 import matplotlib.pyplot as plt
 import sympy as sp
 
+#Slash Screen Window
 splash_root = tk.Tk()
-splash_root.geometry('500x500')
+screen_width = splash_root.winfo_screenwidth()
+screen_height = splash_root.winfo_screenheight()
+x = (screen_width - 500) // 2 
+y = (screen_height - 500) // 2
+splash_root.geometry(f"500x500+{x}+{y}")
 splash_root.overrideredirect(True)
 
-applogo =ImageTk.PhotoImage(Image.open("appLogo.png"))
-splash_logo = tk.Label(splash_root, image=applogo )
+splashLogo =ImageTk.PhotoImage(Image.open("splashLogo.png"))
+
+splash_logo = tk.Label(splash_root, image=splashLogo)
 splash_logo.pack()
 
 def destroy_splash():
@@ -20,17 +26,20 @@ splash_root.after(3000, destroy_splash)
 
 splash_root.mainloop()
 
+#Main Window
 root = tk.Tk()
 root.title("diffCALC")
-root.geometry('450x865')
+x = (screen_width - 450) // 2 
+y = (screen_height - 865) // 2
+root.geometry(f"450x865+{x}+{y}")
 
 navIcon =ImageTk.PhotoImage(Image.open("navIcon.png"))
 closeIcon = ImageTk.PhotoImage(Image.open("closeIcon.png"))
-logo = ImageTk.PhotoImage(Image.open("logo.png"))
+logo = ImageTk.PhotoImage(Image.open("navLogo.png"))
 
 def dele():
         menu_frame.place(x=-900,y=0)
-
+     
 def toggle():   
         menu_frame.tkraise()
         menu_frame.place(x=0,y=0)
@@ -56,33 +65,6 @@ def show_quiz():
         quizFrame.pack()
         menu_frame.place(x=-900,y=0)
 
-
-menu_frame=tk.Frame(root,width=380,height=865,bg='#5E7CAE')
-button = tk.Button(menu_frame,text='D E R I V A T I V E S', width = 42, height = 2,command= show_deriv)
-button.place(x=35, y = 117)
-button = tk.Button(menu_frame,text='C A L C U L A T O R', width = 42, height = 2,command= show_calculator)
-button.place(x=35, y = 172)
-button = tk.Button(menu_frame,text='P R A C T C E   Q U I Z', width = 42, height = 2,command= show_quiz)
-button.place(x=35, y = 227)
-button = tk.Button(menu_frame,text='A B O U T', width = 42, height = 2)
-button.place(x=35, y = 282)
-closeBtn = tk.Button(menu_frame, bg='#5E7CAE', activebackground='#5E7CAE',image=closeIcon,command=dele)
-closeBtn.place(x=10, y=18)
-
-
-navbar = tk.Frame(root, width = 450, height = 65, bg = '#5E7CAE')
-navbar.pack()
-navLabel = tk.Label(navbar, text="diffCALC", font="RobotoCondensed",bg='#5E7CAE', fg ="white")
-navLabel.place(x = 165, y = 18)
-navLogo = tk.Label(navbar,bg='#5E7CAE', image= logo)
-navLogo.place(x = 400, y= 18)
-navbarBtn = tk.Button(navbar, bg='#5E7CAE', activebackground='#5E7CAE',image=navIcon, command=toggle)
-navbarBtn.place(x=10, y=18)
-
-algeFrame = tk.Frame(root,width = 450, height = 800, bg='#ebe3d3')
-algeFrame.pack()
-tranFrame = tk.Frame(root,width = 450, height = 800, bg='#ebe3d3')
-
 # Functions for when the Topics are chosen
 def show_alge():
     algeFrame.pack(fill="both", expand=True)
@@ -93,7 +75,6 @@ def show_tran():
     algeFrame.pack_forget()
     calculator_screen.pack_forget()
 
- 
 def show_image(image_path, frame, button):
     global image_label
     # Check if the image label already exists
@@ -109,59 +90,89 @@ def show_image(image_path, frame, button):
         image_label.pack()
     
 image_label = None
+
+#Menu Frame 
+menu_frame=tk.Frame(root,width=400,height=865,bg='#5E7CAE')
+button = tk.Button(menu_frame,text='D E R I V A T I V E S', width = 42, height = 2,command= show_deriv)
+button.place(x=45, y = 117)
+button = tk.Button(menu_frame,text='C A L C U L A T O R', width = 42, height = 2,command= show_calculator)
+button.place(x=45, y = 172)
+button = tk.Button(menu_frame,text='P R A C T C E   Q U I Z', width = 42, height = 2,command= show_quiz)
+button.place(x=45, y = 227)
+button = tk.Button(menu_frame,text='A B O U T', width = 42, height = 2)
+button.place(x=45, y = 282)
+closeBtn = tk.Button(menu_frame, bg='#5E7CAE', activebackground='#5E7CAE',image=closeIcon,command=dele)
+closeBtn.place(x=10, y=18)
+
+#Navigation Bar Frame
+navbar = tk.Frame(root, width = 450, height = 65, bg = '#5E7CAE')
+navbar.pack()
+navLabel = tk.Label(navbar, text="diffCALC", font="RobotoCondensed",bg='#5E7CAE', fg ="white")
+navLabel.place(x = 183, y = 20)
+navLogo = tk.Label(navbar,bg='#5E7CAE', image= logo)
+navLogo.place(x = 400, y= 18)
+navbarBtn = tk.Button(navbar, bg='#5E7CAE', activebackground='#5E7CAE',image=navIcon, command=toggle)
+navbarBtn.place(x=10, y=18)
+
+#Algebraic and Transcental Frame
+algeFrame = tk.Frame(root,width = 450, height = 800, bg='white')
+algeFrame.pack()
+tranFrame = tk.Frame(root,width = 450, height = 800, bg='white')
+
+
 # Algebraic Buttons
 btn1 = tk.Button(algeFrame, text="Constant Rule", width=30, height=2, command=lambda: show_image("formula_png/alge_func/ConstantRule.png", algeFrame, btn1))
-btn1.pack()
+btn1.pack(pady=7)
 btn2 = tk.Button(algeFrame, text="Power Rule", width=30, height=2, command=lambda: show_image("formula_png/alge_func/PowerRule.png", algeFrame, btn2))
-btn2.pack()
+btn2.pack(pady=7)
 btn3 = tk.Button(algeFrame, text="Constant Multiple Rule", width=30, height=2, command=lambda: show_image("formula_png/alge_func/CMRule.png", algeFrame, btn3))
-btn3.pack()
+btn3.pack(pady=7)
 btn4 = tk.Button(algeFrame, text="Sum Rule", width=30, height=2, command=lambda: show_image("formula_png/alge_func/SumRule.png", algeFrame, btn4))
-btn4.pack()
+btn4.pack(pady=7)
 btn5 = tk.Button(algeFrame, text="Product Rule", width=30, height=2, command=lambda: show_image("formula_png/alge_func/ProductRule.png", algeFrame, btn5))
-btn5.pack()
+btn5.pack(pady=7)
 btn6 = tk.Button(algeFrame, text="Quotient Rule", width=30, height=2, command=lambda: show_image("formula_png/alge_func/QuotientRule.png", algeFrame, btn6))
-btn6.pack()
+btn6.pack(pady=7)
 btn7 = tk.Button(algeFrame, text="General Power Rule", width=30, height=2, command=lambda: show_image("formula_png/alge_func/GPRule.png", algeFrame, btn7))
-btn7.pack()
+btn7.pack(pady=7)
 btn8 = tk.Button(algeFrame, text="Derivative of a Composite Function", width=30, height=2, command=lambda: show_image("formula_png/alge_func/DCF.png", algeFrame, btn8))
-btn8.pack()
+btn8.pack(pady=7)
 btn9 = tk.Button(algeFrame, text="Chain Rule", width=30, height=2, command=lambda: show_image("formula_png/alge_func/ChainRule.png", algeFrame, btn9))
-btn9.pack()
+btn9.pack(pady=7)
 
 # Transcendental Functions Buttons
 btn10 = tk.Button(tranFrame, text="Derivatives of Trigonometric Functions", width=45, height=2, command=lambda: show_image("formula_png/tran_func/DTF.png", tranFrame, btn10))
-btn10.pack()
+btn10.pack(pady=7)
 btn11 = tk.Button(tranFrame, text="Chain Rule of the Derivatives of Trigonometric Functions", width=45, height=2, command=lambda: show_image("formula_png/tran_func/CRDTF.png", tranFrame, btn11))
-btn11.pack()
+btn11.pack(pady=7)
 btn12 = tk.Button(tranFrame, text="Derivatives of Inverse Trigonometric Functions", width=45, height=2, command=lambda: show_image("formula_png/tran_func/DITF.png", tranFrame, btn12))
-btn12.pack()
+btn12.pack(pady=7)
 btn13 = tk.Button(tranFrame, text="Derivatives of Logarithmic Functions", width=45, height=2, command=lambda: show_image("formula_png/tran_func/DLF.png", tranFrame, btn13))
-btn13.pack()
+btn13.pack(pady=7)
 btn14 = tk.Button(tranFrame, text="Derivatives Exponential Functions", width=45, height=2, command=lambda: show_image("formula_png/tran_func/DEF.png", tranFrame, btn14))
-btn14.pack()
+btn14.pack(pady=7)
 btn15 = tk.Button(tranFrame, text="Chain Rule of the Derivatives of Exponential Functions", width=45, height=2, command=lambda: show_image("formula_png/tran_func/CRDEF.png", tranFrame, btn15))
-btn15.pack()
+btn15.pack(pady=7)
 btn16 = tk.Button(tranFrame, text="Derivatives of Hyperbolic Functions", width=45, height=2, command=lambda: show_image("formula_png/tran_func/DHF.png", tranFrame, btn16))
-btn16.pack()
+btn16.pack(pady=7)
 btn17 = tk.Button(tranFrame, text="Chain Rule of the Derivatives of Hyperbolic Functions ", width=45, height=2, command=lambda: show_image("formula_png/tran_func/CRDHF.png", tranFrame, btn17))
-btn17.pack()
+btn17.pack(pady=7)
 
-topicButton1 = tk.Button(algeFrame, text="Next", width=20, height=2, command=show_tran)
-topicButton1.pack()
-topicButton2 = tk.Button(tranFrame, text="Back", width=20, height=2, command=show_alge)
-topicButton2.pack()
+topicButton1 = tk.Button(algeFrame, text="Transcendental", width=20, height=2, command=show_tran)
+topicButton1.pack(pady=7)
+topicButton2 = tk.Button(tranFrame, text="Algebraic", width=20, height=2, command=show_alge)
+topicButton2.pack(pady=7)
 
 algeFrame.pack(expand=True, fill="both")
 algeFrame.pack_propagate(False)
 algeFrame.pack(anchor="center", side="left")
 
+#Calculator Screen
 calculator_screen = tk.Frame(root)
 
 ROW_OFFSET = 2
 
 expression = ""
-
 
 def display_equation(diff=False):
     global expression
@@ -251,6 +262,10 @@ def process_symbol(symbol):
 
     elif symbol == "π":
         expression += "pi"
+    
+    elif symbol == "OFF":
+        algeFrame.pack()
+        calculator_screen.pack_forget()
 
     elif symbol == "INV":
         buttons = [
@@ -282,7 +297,6 @@ def process_symbol(symbol):
         diff = True
 
     display_equation(diff)
-
 
 def create_button(label, row, col, row_span=1, col_span=1):
     button = tk.Button(
@@ -328,12 +342,12 @@ def create_buttons(buttons):
         for j, label in enumerate(row):
             create_button(label, i + ROW_OFFSET, j)
 
-
-
 create_buttons(buttons)
 display_equation()
 
 calculator_screen.pack()
+
+#QUIZ FRAME
 questions = [
     {
         "question": "If y=sin(x^3), find dy/dx.",
