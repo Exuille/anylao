@@ -345,124 +345,128 @@ def create_buttons(buttons):
 create_buttons(buttons)
 display_equation()
 
-calculator_screen.pack()
-
 #QUIZ FRAME
 questions = [
     {
-        "question": "If y=sin(x^3), find dy/dx.",
-        "options": ["3x^2 cosx^3", "-3x^2 cosx^3", "3x^2 cosx^2", "3x^3 cosx^3"],
-        "answer": "3x^2 cosx^3",
-        "solution" : "sol_1.png"
+        "question": "questions/ques_1.png",
+        "options": ["A","B","C","D"],
+        "answer": "A",
+        "solution" : "solutions/sol_1.png"
     },
     {
-        "question": "Compute the derivative of the function y = arcsin(2x + 1), or  y = sin-1(2x + 1).",
-        "options": [" 2/√[-x(x + 2)]", "-1/√[-x(x + 1)]", "1/√[-x(x + 1)]", "1/√[-x(x + 2)]"],
-        "answer": "1/√[-x(x + 1)]",
-        "solution" : "sol_2.png"
+        "question": "questions/ques_2.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "C",
+        "solution" : "solutions/sol_2.png"
     },
     {
-        "question": "Find g' (t), when g (t) = - 325. ",
-        "options": ["-325", "0", "325", "1"],
-        "answer": "0",
-        "solution" : "sol_3.png"
+        "question": "questions/ques_3.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "B",
+        "solution" : "solutions/sol_3.png"
     },
     {
-        "question": "Differentiate log e (x^2 + 3x + 1).",
-        "options": ["1/((x^2 + 3x + 1)", "2x+3", "(2x+3)/(x^2+3x+1)", "1/((x^2 + 3x + 1)"],
-        "answer": "(2x+3)/(x^2+3x+1)",
-        "solution" : "sol_4.png"
+        "question": "questions/ques_4.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "B",
+        "solution" : "solutions/sol_4.png"
     },
     {
-        "question" : "Solve the equation: 2 cosh 2x +10sinh 2x = 5",
-        "options" : ["4/3ln(1/2)", "1/2ln(4/3)", "3/4ln(1/2)", "1/2ln(3/4)"],
-        "answer" : "1/2ln(4/3)",
-        "solution" : "sol_5.png"
+        "question": "questions/ques_5.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "C",
+        "solution" : "solutions/sol_5.png"
     },
     {
-        "question" : "e^xcos(x)",
-        "options" : ["e^xcos(x)+e^xsin(x)", "e^xcos(x)-e^xsin(x)", "e^xsin(x)-e^xcos(x)", "e^xsin(x)cos(x)"],
-        "answer" : "e^xcos(x)-e^xsin(x)",
-        "solution" : "sol_6.png"
+        "question": "questions/ques_6.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "A",
+        "solution" : "solutions/sol_6.png"
     },
     {
-        "question" : "sech(5x^3+x^2-2)",
-        "options" : ["-sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)", "-sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(5x^3+x^2-2)", "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)", "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(5x^3+x^2-2)"],
-        "answer" : "sech(5x^3+x^2-2)tanh(5x^3+x^2-2)(15x^2+2x)",
-        "solution" : "sol_7.png"
+        "question": "questions/ques_7.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "B",
+        "solution" : "solutions/sol_7.png"
     },
     {
-        "question" : "log10(x^13)",
-        "options" : ["13ln(10)x", "13/ln(10)x", "10/ln(13)x", "10ln(13)x"],
-        "answer" : "13/ln(10)x",
-        "solution" : "sol_8.png"
+        "question": "questions/ques_8.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "A",
+        "solution" : "solutions/sol_8.png"
     },
     {
-        "question" : "e^x^3 + x^2 -6",
-        "options" : ["e^x^3-x^2+6(3x^2+3x)","e^x^3+x^2-6(3x^2+2x)","e^x^3+x^2-6(2x^3+2x)", "e^x^3+x^2-6(2x^3-2x)"],
-        "answer" : "e^x^3+x^2-6(3x^2+2x)",
-        "solution" : "sol_9.png"
+        "question": "questions/ques_9.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "B",
+        "solution" : "solutions/sol_9.png"
     },
     {
-        "question" : "sin^2(x)",
-        "options" : ["cos(2x)", "sin(2x)", "sin(x)cos(2x)", "sin(2x)cos(2x)"],
-        "answer" : "sin(2x)",
-        "solution" : "sol_10.png"
+        "question": "questions/ques_10.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "A",
+        "solution" : "solutions/sol_10.png"
     },
     {
-        "question" : "Use Logarithmic Differentiation to Find the Derivative y=(2x-6)^2/(3x-2)^2",
-        "options" : ["y’ = - 56(x-3)/ (3x-2)^3", "y’ = 56(x-3)/ (3x-2)^3", "y’ = 56(x-3)/ (3x-2)^4", "y’ = -56(x-3)/ (3x-2)^4"],
-        "answer" : "y’ = 56(x-3)/ (3x-2)^3",
-        "solution" : "sol_11.png"
+        "question": "questions/ques_11.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "A",
+        "solution" : "solutions/sol_11.png"
     },
     {
-        "question" : "Find the derivative of y= -4x^3e^2x^3",
-        "options" : ["-4x^2e^2x^2(4x^2+5)", "4x^2e^2x^2(4x^2+3)", "5x^2e^2x^2(4x^2+3)", "-4x^2e^2x^2(4x^2+3)"],
-        "answer" : "-4x^2e^2x^2(4x^2+3)",
-        "solution" : "sol_12.png"
+        "question": "questions/ques_12.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "A",
+        "solution" : "solutions/sol_12.png"
     },
     {
-        "question" : "Find the derivative of y= -6e^3x",
-        "options" : ["18e^3x", "18e", "-18e^4x", "-18e^3x"],
-        "answer" : "-18e^3x",
-        "solution" : "sol_13.png"
+        "question": "questions/ques_13.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "D",
+        "solution" : "solutions/sol_13.png"
     },
     {
-        "question" : "Find the derivative of y = 5^-2x^3",
-        "options" : ["-6x^2(ln5)5^-2x", "6x^2(ln5)5^-2x", "-6x^2(ln5)5^", "-6x(ln5)5^-2x"],
-        "answer" : "-6x^2(ln5)5^-2x",
-        "solution" : "sol_14.png"
+        "question": "questions/ques_14.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "C",
+        "solution" : "solutions/sol_14.png"
     },
     {
-        "question" : "y= 3^1/x",
-        "options" : ["(3ln 3)/x^2", "(3^1/xln 3)/x^2", "(3ln 2)/x^2", "(-3^1/xln 3)/x^2"],
-        "answer" : "(3^1/xln 3)/x^2",
-        "solution" : "sol_15.png"
+        "question": "questions/ques_15.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "A",
+        "solution" : "solutions/sol_15.png"
     },
     {
-        "question" : "Differentiate y=2 sinh x cosh x + 3 csch x",
-        "options" : ["y'=3sinh^2 - 2cosh^2x + 3csch x coth x", "y'=2sinh^2 - 2cosh^2x + 3csch x coth x", "y'=2sinh^2 + 2cosh^2x - 3csch x coth x", "y'=3sinh^2 + 3cosh^2x - 2csch x coth x"],
-        "answer" : "y'=2sinh^2 + 2cosh^2x - 3csch x coth x",
-        "solution" : "sol_16.png"
+        "question": "questions/ques_16.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "B",
+        "solution" : "solutions/sol_16.png"
     },
     {
-        "question" : " d/dx[√cos^-1(x)]",
-        "options" : ["1/cos^-1(x)√1-x^2", "-1/2√cos^-1(x)√1-x^2", "1/-sin(cos^-1(x))", "1/2√cos^-1(x)√1-x^2"],
-        "answer" : "-1/2√cos^-1(x)√1-x^2",
-        "solution" : "sol_17.png"
+        "question": "questions/ques_17.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "C",
+        "solution" : "solutions/sol_20.png"
     },
     {
-        "question" : "d/dx [ln(tan^-1(x))]",
-        "options" : ["1/tan^-1(x)(1+x^2)", "1/tan^-1(x)", "1/2(1+x^2)", "1/x+x(ln(x))^2"],
-        "answer" : "1/tan^-1(x)(1+x^2)",
-        "solution" : "sol_18.png"
+        "question": "questions/ques_18.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "D",
+        "solution" : "solutions/sol_17.png"
     },
     {
-        "question" : "d/dx[xsin^1(ln(x))]",
-        "options" : ["sin^-1(ln(x))", "1/√1-(ln(x))^2", "sin^-1(ln(x)) - 1/√1-(ln(x))^2", "sin^-1(ln(x)) + 1/√1-(ln(x))^2"],
-        "answer" : "sin^-1(ln(x)) + 1/√1-(ln(x))^2",
-        "solution" : "sol_19.png"
-    }
+        "question": "questions/ques_19.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "A",
+        "solution" : "solutions/sol_18.png"
+    },
+    {
+        "question": "questions/ques_20.png",
+        "options": ["A", "B", "C", "D"],
+        "answer": "D",
+        "solution" : "solutions/sol_19.png"
+    },
 ]
 
 question_num = 0
@@ -471,13 +475,19 @@ score = 0
 def ask_question():
     global question_num
     question = questions[question_num]
-    question_label.configure(text=question["question"], wraplength=435)
-    option_a.configure(text="A) " + question["options"][0], state=tk.NORMAL, wraplength=300)
-    option_b.configure(text="B) " + question["options"][1], state=tk.NORMAL, wraplength=300)
-    option_c.configure(text="C) " + question["options"][2], state=tk.NORMAL, wraplength=300)
-    option_d.configure(text="D) " + question["options"][3], state=tk.NORMAL, wraplength=300)
+    image_path = question["question"]
+    image = Image.open(image_path)
+    image = image.resize((375, 150), Image.ANTIALIAS)
+    photo = ImageTk.PhotoImage(image)
+    image_label.configure(image=photo)
+    image_label.image = photo
+    option_a.configure(text=question["options"][0], state=tk.NORMAL, wraplength=300)
+    option_b.configure(text=question["options"][1], state=tk.NORMAL, wraplength=300)
+    option_c.configure(text=question["options"][2], state=tk.NORMAL, wraplength=300)
+    option_d.configure(text=question["options"][3], state=tk.NORMAL, wraplength=300)
     show_score()
     disable_next_button()
+    show_solution_button.configure(state=tk.DISABLED)
     exit_button.pack_forget()
 
 def enable_next_button():
@@ -515,8 +525,8 @@ def check_answer():
     question = questions[question_num]
     if question["answer"] == question["options"][ord(selected_choice) - ord("A")]:
         score += 1
+        show_score()
         result_label.configure(text="Correct!", fg="green")
-
     else:
         result_label.configure(text="Incorrect!", fg="red")
     
@@ -535,19 +545,20 @@ def next_question():
 
 def show_final_score_screen():
     score_top_label.pack_forget()
+    image_label.pack_forget()
+    question_label.pack()
     question_label.configure(text="Quiz Finished")
-    option_a.pack_forget()
-    option_b.pack_forget()
-    option_c.pack_forget()
-    option_d.pack_forget()
+    options_frame.pack_forget()
     confirm_button.pack_forget()
     next_button.pack_forget()
     show_solution_button.pack_forget()
-    exit_button.pack
+    exit_button.pack_forget()
+
     result_label.configure(text="Your Final Score: " + str(score) + "/" + str(len(questions)), font=("RobotoCondensed", 20))
-    exit_button.configure(state=tk.NORMAL)
-    congratulation_label = tk.Label(quizFrame, text="Congratulations!", font=("RobotoCondensed", 24))
+    congratulation_label = tk.Label(root, text="Congratulations!", font=("RobotoCondensed", 24))
     congratulation_label.pack(pady=10)
+    exit_button.configure(state=tk.NORMAL)
+    exit_button.pack(pady=10)
 
 def exit_quiz():
     answer = messagebox.askyesno("Exit Quiz", "Are you sure you want to exit the quiz?")
@@ -555,37 +566,57 @@ def exit_quiz():
         root.destroy()
 
 def show_solution():
-    messagebox.showinfo("Solution", "Solution not available")
+    question = questions[question_num]
+    image_path = question["solution"]
+    
+    solution_window = tk.Toplevel(root)
+    solution_window.title("Solution")
+    
+    image = Image.open(image_path)
+    photo = ImageTk.PhotoImage(image)
+    
+    solution_label = tk.Label(solution_window, image=photo)
+    solution_label.pack()
+    
+    solution_window.mainloop()
 
 quizFrame =tk.Frame(root,width=450,height=800)
+
 score_top_label = tk.Label(quizFrame, text="Score: 0", font=("RobotoCondensed", 14))
 score_top_label.pack(pady=20)
 result_label = tk.Label(quizFrame, text="", font=("RobotoCondensed", 14))
 result_label.pack(pady=10)
 
-question_label = tk.Label(quizFrame, text="", font=("RobotoCondensed", 16), pady=40)
-question_label.pack()
+question_label = tk.Label(quizFrame, text="", font=("RobotoCondensed", 20),pady=25)
+image_label = tk.Label(quizFrame, text="", font=("RobotoCondensed", 16), pady=25)
+image_label.pack()
 
-option_a = tk.Button(quizFrame, text="", font=("RobotoCondensed", 14), width=30, command=lambda: check_choice("A"))
-option_a.pack(pady=10)
-option_b = tk.Button(quizFrame, text="", font=("RobotoCondensed", 14), width=30, command=lambda: check_choice("B"))
-option_b.pack(pady=10)
-option_c = tk.Button(quizFrame, text="", font=("RobotoCondensed", 14), width=30, command=lambda: check_choice("C"))
-option_c.pack(pady=10)
-option_d = tk.Button(quizFrame, text="", font=("RobotoCondensed", 14), width=30, command=lambda: check_choice("D"))
-option_d.pack(pady=10)
+options_frame = tk.Frame(quizFrame)
+options_frame.pack(pady=20)
+
+option_a = tk.Button(options_frame, text="", font=("RobotoCondensed", 14), width=15, command=lambda: check_choice("A"))
+option_a.grid(row=0, column=0, padx=10, pady=10)
+
+option_b = tk.Button(options_frame, text="", font=("RobotoCondensed", 14), width=15, command=lambda: check_choice("B"))
+option_b.grid(row=1, column=0, padx=10, pady=10)
+
+option_c = tk.Button(options_frame, text="", font=("RobotoCondensed", 14), width=15, command=lambda: check_choice("C"))
+option_c.grid(row=0, column=1, padx=10, pady=10)
+
+option_d = tk.Button(options_frame, text="", font=("RobotoCondensed", 14), width=15, command=lambda: check_choice("D"))
+option_d.grid(row=1, column=1, padx=10, pady=10)
 
 confirm_button = tk.Button(quizFrame, text="Confirm Answer", font=("RobotoCondensed", 14), width=15, state=tk.DISABLED,command=check_answer)
-confirm_button.pack(pady=10)
+confirm_button.pack(pady=20)
 
 next_button = tk.Button(quizFrame, text="Next", font=("RobotoCondensed", 14), width=15, command=next_question, state=tk.DISABLED)
-next_button.pack(pady=30)
+next_button.pack(pady=20)
 
 show_solution_button = tk.Button(quizFrame, text="Show Solution", font=("RobotoCondensed", 14), width=15,state=tk.DISABLED, command=show_solution)
 show_solution_button.pack(pady=10)
 
 exit_button = tk.Button(quizFrame, text="Exit Quiz", font=("RobotoCondensed", 14), width=15, command=exit_quiz,state=tk.DISABLED)
-exit_button.pack(pady=10)
+exit_button.pack(pady=20)
 
 ask_question()
 
